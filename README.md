@@ -9,15 +9,17 @@ Goal:
 
     The calculator will require the following:
     
-        Addition
-        Subtraction
-        Multiply
-        Divide
-        Equal Button
-        Decimal Button
+        Buttons which supports....
+            Addition
+            Subtraction
+            Multiply
+            Divide
+            Equal (calculate)
+            Decimal Button
+            Clear Button
+            "backspace" support
+
         Display for numbers
-        Clear Button
-        "backspace" support
         Evaluation of a singular pair of numbers at a time
         Round answer with long decimals
         Error Message if the user divides by zero
