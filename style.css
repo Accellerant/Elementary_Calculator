@@ -1,0 +1,14 @@
+.calc_frame {
+    background-color: #1e4a86;;
+    width: 500px;
+    height: 700px;
+    margin: 50px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: rgb(167, 175, 181);
+    margin: 0px;
+}
