@@ -13,3 +13,16 @@ body {
     background-color: rgb(167, 175, 181);
     margin: 0px;
 }
+
+.display {
+    display: flex;
+    flex-direction: row-reverse;
+    background: #7fa28f;
+    font-size: 55px;
+    border: 10px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #6d8785;
+    white-space: nowrap;
+    overflow: hidden;
+}
