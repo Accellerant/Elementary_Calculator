@@ -29,13 +29,17 @@ body {
 
 .cntnr_logo {
     display: flex;
-    gap: 10px;
 }
 
 .cntnr_branding {
    display: flex; 
+   gap: 10px;
 }
 
 .img_logo {
     width: 35px;
+}
+
+.model {
+    font-size: 25px;
 }
