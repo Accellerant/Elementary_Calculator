@@ -26,3 +26,16 @@ body {
     white-space: nowrap;
     overflow: hidden;
 }
+
+.cntnr_logo {
+    display: flex;
+    gap: 10px;
+}
+
+.cntnr_branding {
+   display: flex; 
+}
+
+.img_logo {
+    width: 35px;
+}
