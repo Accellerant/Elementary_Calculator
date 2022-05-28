@@ -43,6 +43,7 @@ body {
    margin: 10px 0px;
    font-family: 'Robot Slab', 'Times New Roman', Times, serif;
    font-weight: 1000;
+   color: white;
 }
 
 .img_logo {
@@ -53,4 +54,20 @@ body {
 
 .model {
     font-size: 50px;
+}
+
+.cntnr_btn {
+    display: flex;
+    gap: 25px;
+}
+
+.btn_numsPow, .cntnr_operators {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+[class^="row"] {
+    display: inherit;
+    gap: inherit;
 }
