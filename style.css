@@ -71,3 +71,20 @@ body {
     display: inherit;
     gap: inherit;
 }
+
+.solarCell {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+[class^="cell"] {
+    background-color: #3d554f;
+    width: 55px;
+    height: 55px;
+    border-style: solid;
+    border-right-style: none;
+}
+
+.cell4 {
+    border-right-style: solid;
+}
