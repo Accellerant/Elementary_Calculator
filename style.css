@@ -1,9 +1,10 @@
 .calc_frame {
     background-color: #1e4a86;;
-    width: 500px;
+    width: 450px;
     height: 700px;
     margin: 25px;
     padding: 40px;
+    border-radius: 30px;
 }
 
 body {
