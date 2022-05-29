@@ -58,13 +58,14 @@ body {
 
 .cntnr_btn {
     display: flex;
-    gap: 25px;
+    gap: 50px;
+    align-items: end;
 }
 
 .btn_numsPow, .cntnr_operators {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
 [class^="row"] {
@@ -87,4 +88,31 @@ body {
 
 .cell4 {
     border-right-style: solid;
+}
+
+.btn_numsPow > div > button, 
+.cntnr_operators > button {
+    border-radius: 5px;
+    width: 85px;
+    height: 60px;
+    display: flex;
+    padding-left: 10px;
+    border-width: 5px;
+    font-weight: 1000;
+    font-size: 22px;
+}
+
+.btn_numsPow > div > button {
+    background-color: white;
+    border-color: #b9b9b9;
+}
+
+.cntnr_operators > button, .red {
+    background-color: red !important;
+    border-color: darkred !important;
+    color: white;
+}
+
+.calculate {
+    height: 140px !important;
 }
