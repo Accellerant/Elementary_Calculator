@@ -107,7 +107,7 @@ body {
     border-color: #b9b9b9;
 }
 
-.cntnr_operators > button, .red {
+.cntnr_operators > button, .red, .ad {
     background-color: red !important;
     border-color: darkred !important;
     color: white;
@@ -115,4 +115,21 @@ body {
 
 .calculate {
     height: 140px !important;
+}
+
+.ad {
+    font-weight: 1000;
+    text-align: center;
+    height: 140px;
+    width: 295px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border-width: 7px;
+}
+
+.ad > div {
+    width: 80%;
 }
