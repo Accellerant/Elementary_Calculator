@@ -104,3 +104,20 @@ clearButton.addEventListener('click', () => {
         
 });
 
+const opButtons = document.querySelectorAll('[id^="btnOp_"]');
+opButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if(userOperation === "") {
+            userNum1 = Number(currentNum);
+            
+        } else {
+            userNum2 = Number(currentNum);
+            currentNum = userNum1 = operate(userOperation, userNum1, userNum2);
+
+        }
+
+        populateDisplay(currentNum);
+        userOperation = button.textContent;
+        currentNum = "";
+    });
+});
