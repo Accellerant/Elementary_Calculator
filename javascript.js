@@ -60,3 +60,22 @@ function operate (operator, a, b) {
             console.log("ERROR: No provided Operator!!!!");
     }
 }
+
+function populateDisplay(stringDisplay){
+    const display = document.querySelector("#numDisplay");
+    display.textContent = stringDisplay;
+}
+
+
+let userNum1 = "", userNum2 = "", userOperation = "";
+let currentNum = "";
+let operatorChosen = false, decimal = false;
+
+const numButtons = document.querySelectorAll('[id^="btnNum_"]');
+numButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        currentNum += button.textContent;
+        populateDisplay(currentNum);
+    })
+})
+
