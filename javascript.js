@@ -62,14 +62,16 @@ function operate (operator, a, b) {
 }
 
 function populateDisplay(stringDisplay){
-    const display = document.querySelector("#numDisplay");
-    display.textContent = stringDisplay;
+    if(powOn == true) {
+        const display = document.querySelector("#numDisplay");
+        display.textContent = stringDisplay;
+    } 
 }
-
 
 let userNum1 = "", userNum2 = "", userOperation = "";
 let currentNum = "";
-let operatorChosen = false, decimalUsed = false;
+let operatorChosen = false, decimalUsed = false, powOn = false;
+
 
 const numButtons = document.querySelectorAll('[id^="btnNum_"]');
 numButtons.forEach((button) => {
@@ -87,3 +89,15 @@ decButton.addEventListener('click', () => {
        decimalUsed = true;
     }
 });
+
+const clearButton = document.querySelector('#btn_on');
+clearButton.addEventListener('click', () => {
+    if(powOn != true) {
+        powOn = true;
+        populateDisplay("0");
+    } else {
+        populateDisplay("0");
+        currentNum = "";
+    }
+        
+})
