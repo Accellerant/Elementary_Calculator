@@ -62,7 +62,7 @@ body {
     align-items: end;
 }
 
-.btn_numsPow, .cntnr_operators {
+.cntnr_numsPow, .cntnr_operators {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -90,7 +90,7 @@ body {
     border-right-style: solid;
 }
 
-.btn_numsPow > div > button, 
+.cntnr_numsPow > div > button, 
 .cntnr_operators > button {
     border-radius: 5px;
     width: 85px;
@@ -102,7 +102,7 @@ body {
     font-size: 22px;
 }
 
-.btn_numsPow > div > button {
+.cntnr_numsPow > div > button {
     background-color: white;
     border-color: #b9b9b9;
 }
