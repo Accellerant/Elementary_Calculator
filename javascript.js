@@ -66,7 +66,7 @@ function populateDisplay(stringDisplay){
 
 let userNum1 = "", userNum2 = "", userOperation = "";
 let currentNum = "";
-let operatorChosen = false, decimalUsed = false, powOn = false;
+let operatorChosen = false, decimalUsed = false, powOn = false, calculated = false;
 
 
 const numButtons = document.querySelectorAll('[id^="btnNum_"]');
@@ -101,6 +101,7 @@ clearButton.addEventListener('click', () => {
     userNum1 = "";
     userNum2 = "";
     userOperation = "";
+    calculated = false;
         
 });
 
@@ -110,6 +111,9 @@ opButtons.forEach((button) => {
         if(userOperation === "") {
             userNum1 = Number(currentNum);
             
+        } else if(calculated) {
+            currentNum = userNum1;
+            calculated = false;
         } else {
             userNum2 = Number(currentNum);
             currentNum = userNum1 = operate(userOperation, userNum1, userNum2);
@@ -128,4 +132,5 @@ calcButton.addEventListener('click', () => {
     currentNum = userNum1 = operate(userOperation, userNum1, userNum2);
     populateDisplay(currentNum);
     currentNum = userNum2;
+    calculated = true;
 });
