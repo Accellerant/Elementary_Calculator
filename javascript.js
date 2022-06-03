@@ -48,11 +48,11 @@ function operate (operator, a, b) {
             sub(a, b);
             break;
 
-        case "*":
+        case "x":
             mult(a, b);
             break;
 
-        case "/":
+        case "÷":
             div(a, b);
             break;
 
