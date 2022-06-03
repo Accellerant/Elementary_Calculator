@@ -28,6 +28,7 @@ body {
     border-color: #6d8785;
     white-space: nowrap;
     overflow: hidden;
+    height: 66px;
 }
 
 .cntnr_logo {
