@@ -76,7 +76,11 @@ let operatorChosen = false, decimalUsed = false, powOn = false;
 const numButtons = document.querySelectorAll('[id^="btnNum_"]');
 numButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        currentNum += button.textContent;
+        if(currentNum[0] === "0" && currentNum[1] != ".") {
+            currentNum = button.textContent;
+        } else {
+            currentNum += button.textContent;
+        }
         populateDisplay(currentNum);
     })
 })
@@ -92,12 +96,15 @@ decButton.addEventListener('click', () => {
 
 const clearButton = document.querySelector('#btn_on');
 clearButton.addEventListener('click', () => {
-    if(powOn != true) {
+    if(powOn != true) 
         powOn = true;
-        populateDisplay("0");
-    } else {
-        populateDisplay("0");
-        currentNum = "";
-    }
+
+    populateDisplay("0");
+    currentNum = "";
+    decimalUsed = false;
+    userNum1 = "";
+    userNum2 = "";
+    userOperation = "";
         
 })
+
