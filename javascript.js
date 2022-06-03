@@ -121,3 +121,11 @@ opButtons.forEach((button) => {
         currentNum = "";
     });
 });
+
+const calcButton = document.querySelector('#btnCalc');
+calcButton.addEventListener('click', () => {
+    userNum2 = Number(currentNum);
+    currentNum = userNum1 = operate(userOperation, userNum1, userNum2);
+    populateDisplay(currentNum);
+    currentNum = userNum2;
+});
