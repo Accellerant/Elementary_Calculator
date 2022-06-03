@@ -1,26 +1,26 @@
 function add (a, b) {
-    if(!bParam(b))
+    if(bParam(b) != true)
         return a + a;
 
     return a + b;
 }
 
 function sub (a, b) {
-    if(!bParam(b))
+    if(bParam(b) != true)
         return a - a;
 
     return a - b;
 }
 
 function mult (a, b) {
-    if(!bParam(b))
+    if(bParam(b) != true)
         return a * a;
 
     return a * b;
 }
 
 function div (a, b) {
-    if(!bParam(b))
+    if(bParam(b) != true)
         return a / a;
 
     return a / b;
