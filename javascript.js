@@ -41,20 +41,16 @@ to their appropriate function.
 function operate (operator, a, b) {
     switch (operator) {
         case "+":
-            add(a, b);
-            break;
+            return add(a, b);
         
         case "-":
-            sub(a, b);
-            break;
+            return sub(a, b);
 
         case "x":
-            mult(a, b);
-            break;
+            return mult(a, b);
 
         case "÷":
-            div(a, b);
-            break;
+            return div(a, b);
 
         default:
             console.log("ERROR: No provided Operator!!!!");
@@ -106,5 +102,5 @@ clearButton.addEventListener('click', () => {
     userNum2 = "";
     userOperation = "";
         
-})
+});
 
