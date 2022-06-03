@@ -69,7 +69,7 @@ function populateDisplay(stringDisplay){
 
 let userNum1 = "", userNum2 = "", userOperation = "";
 let currentNum = "";
-let operatorChosen = false, decimal = false;
+let operatorChosen = false, decimalUsed = false;
 
 const numButtons = document.querySelectorAll('[id^="btnNum_"]');
 numButtons.forEach((button) => {
@@ -79,3 +79,11 @@ numButtons.forEach((button) => {
     })
 })
 
+const decButton = document.querySelector('#btnDec');
+decButton.addEventListener('click', () => {
+    if(decimalUsed != true){
+       currentNum += ".";
+       populateDisplay(currentNum);
+       decimalUsed = true;
+    }
+});
