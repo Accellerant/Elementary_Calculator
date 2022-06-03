@@ -99,8 +99,8 @@ clearButton.addEventListener('click', () => {
     if(powOn != true) 
         powOn = true;
 
-    populateDisplay("0");
-    currentNum = "";
+
+    populateDisplay(currentNum = "0");
     decimalUsed = false;
     userNum1 = "";
     userNum2 = "";
