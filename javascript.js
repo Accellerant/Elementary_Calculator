@@ -20,15 +20,27 @@ function mult (a, b) {
 }
 
 function div (a, b) {
-    if(bParam(b) != true)
+    if(bParam(b) != true) {
+        if(a === 0)
+            return msgDivideByZero();
         return a / a;
+    }
+        
+    if(b === 0) {
+        return msgDivideByZero();
+    }
 
     return a / b;
 }
 
+function msgDivideByZero() {
+    alert("ERROR: Can't Divide By 0!!! >:(");
+    return null;
+}
+
 //If "b" for the operators isn't provided, return false.
 function bParam(b) {
-    if(typeof(b) === "undefined")
+    if(b === "")
         return false;
     
     return true;
@@ -64,6 +76,15 @@ function populateDisplay(stringDisplay){
     } 
 }
 
+function resetMainVals() {
+    populateDisplay(currentNum = "0");
+    decimalUsed = false;
+    userNum1 = "";
+    userNum2 = "";
+    userOperation = "";
+    calculated = false;
+}
+
 let userNum1 = "", userNum2 = "", userOperation = "";
 let currentNum = "";
 let operatorChosen = false, decimalUsed = false, powOn = false, calculated = false;
@@ -72,6 +93,8 @@ let operatorChosen = false, decimalUsed = false, powOn = false, calculated = fal
 const numButtons = document.querySelectorAll('[id^="btnNum_"]');
 numButtons.forEach((button) => {
     button.addEventListener('click', () => {
+        if(calculated)
+            resetMainVals();
         if(currentNum[0] === "0" && currentNum[1] != ".") {
             currentNum = button.textContent;
         } else {
@@ -95,14 +118,7 @@ clearButton.addEventListener('click', () => {
     if(powOn != true) 
         powOn = true;
 
-
-    populateDisplay(currentNum = "0");
-    decimalUsed = false;
-    userNum1 = "";
-    userNum2 = "";
-    userOperation = "";
-    calculated = false;
-        
+    resetMainVals();       
 });
 
 const opButtons = document.querySelectorAll('[id^="btnOp_"]');
@@ -112,25 +128,42 @@ opButtons.forEach((button) => {
             userNum1 = Number(currentNum);
             
         } else if(calculated) {
-            currentNum = userNum1;
+            currentNum = String(userNum1);
             calculated = false;
-        } else {
+            userNum2 = "";
+        } else if(userNum1 != "" && userNum2 != ""){
             userNum2 = Number(currentNum);
             currentNum = userNum1 = operate(userOperation, userNum1, userNum2);
-
+            
         }
 
-        populateDisplay(currentNum);
         userOperation = button.textContent;
+        if(userNum2 == "")
+            userNum2 = Number(currentNum);
+            
+        populateDisplay(currentNum);
         currentNum = "";
     });
 });
 
 const calcButton = document.querySelector('#btnCalc');
 calcButton.addEventListener('click', () => {
-    userNum2 = Number(currentNum);
-    currentNum = userNum1 = operate(userOperation, userNum1, userNum2);
-    populateDisplay(currentNum);
-    currentNum = userNum2;
-    calculated = true;
+    if(userOperation === "") {
+        populateDisplay(currentNum);
+    } else {
+        if(currentNum != "")
+            userNum2 = Number(currentNum);
+
+        currentNum = userNum1 = operate(userOperation, userNum1, userNum2);
+    
+        if(currentNum === null) {
+            resetMainVals();
+            populateDisplay(">:(");
+        } else {
+            populateDisplay(currentNum);
+            calculated = true;
+            currentNum = "";
+        } 
+    }
+
 });
