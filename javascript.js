@@ -69,6 +69,38 @@ function operate (operator, a, b) {
     }
 }
 
+function roundDecimal(a) {
+
+    let wholeNum = null, decNum = null, decPos = null;
+
+    if(typeof(a) !== "string") {
+        a = String(a);
+    }
+
+    decPos = a.indexOf(".");
+
+    if(decPos != -1) {
+        wholeNum = a.slice(0, decPos);
+        decNum = a.slice(decPos);
+
+        decNum = String(Number(decNum).toFixed(2));
+        decPos = decNum.indexOf(".")
+
+        if(decPos != -1) {
+            if(decNum[decPos + 1] == "0" && decNum[decPos +2] == "0")
+                decNum = "0";
+        }
+            
+
+        a = Number(wholeNum) + Number(decNum);
+        
+    }
+
+    return a;
+    
+
+}
+
 function populateDisplay(stringDisplay){
     if(powOn == true) {
         const display = document.querySelector("#numDisplay");
