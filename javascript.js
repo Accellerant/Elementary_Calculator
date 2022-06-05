@@ -165,7 +165,7 @@ opButtons.forEach((button) => {
             userNum2 = "";
         } else if(userNum1 != "" && userNum2 != ""){
             userNum2 = Number(currentNum);
-            currentNum = userNum1 = operate(userOperation, userNum1, userNum2);
+            currentNum = userNum1 = roundDecimal(operate(userOperation, userNum1, userNum2));
             
         }
 
@@ -174,7 +174,8 @@ opButtons.forEach((button) => {
             userNum2 = Number(currentNum);
             
         populateDisplay(currentNum);
-        currentNum = "";
+        currentNum = "0";
+        decimalUsed = false;
     });
 });
 
@@ -186,7 +187,7 @@ calcButton.addEventListener('click', () => {
         if(currentNum != "")
             userNum2 = Number(currentNum);
 
-        currentNum = userNum1 = operate(userOperation, userNum1, userNum2);
+        currentNum = userNum1 = roundDecimal(operate(userOperation, userNum1, userNum2));
     
         if(currentNum === null) {
             resetMainVals();
