@@ -125,17 +125,24 @@ let operatorChosen = false, decimalUsed = false, powOn = false, calculated = fal
 
 const numButtons = document.querySelectorAll('[id^="btnNum_"]');
 numButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        if(calculated)
+    button.addEventListener('click', numBtn)
+});
+
+function numBtn(keyVal = "undefined") {
+    typeof keyVal === "object" ? keyVal = this.textContent : keyVal;
+
+    if(calculated)
             resetMainVals();
-        if(currentNum[0] === "0" && currentNum[1] != ".") {
-            currentNum = button.textContent;
-        } else {
-            currentNum += button.textContent;
-        }
-        populateDisplay(currentNum);
-    })
-})
+
+    if(currentNum[0] === "0" && currentNum[1] != ".") {
+        currentNum = keyVal;
+
+    } else {
+        currentNum += keyVal;
+    }
+
+    populateDisplay(currentNum);
+}
 
 const decButton = document.querySelector('#btnDec');
 decButton.addEventListener('click', () => {
@@ -208,3 +215,44 @@ function calcBtnSolve() {
     }
 }
 
+window.addEventListener('keydown', (event) => {
+    document.activeElement.blur();
+    //console.log(event);
+
+
+    switch(event.key) {
+        case "Enter":
+            calcBtnSolve();
+            break;
+
+        case "+":
+        case "-":
+        case "/":
+        case "*":
+            calcBtnOperation();
+            userOperation = keyOpConversion(event.key);
+            break;
+
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+        case "0":
+            numBtn(event.key);
+            break;
+
+    }
+});
+
+function keyOpConversion(operator) {
+    if(operator === "+" || operator === "-") {
+        return operator;
+    } else 
+        return (operator === "/" ? "÷" : "x");
+
+}
