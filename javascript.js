@@ -96,7 +96,7 @@ function roundDecimal(a) {
 }
 
 function populateDisplay(stringDisplay){
-    if(powOn == true) {
+    if(powOn) {
         const display = document.querySelector("#numDisplay");
         display.textContent = stringDisplay;
     } 
@@ -151,12 +151,14 @@ function decBtn() {
 }
 
 const clearButton = document.querySelector('#btn_on');
-clearButton.addEventListener('click', () => {
-    if(powOn != true) 
+clearButton.addEventListener('click', powOnClear);
+
+function powOnClear(){
+    if(!powOn)
         powOn = true;
 
-    resetMainVals();       
-});
+    resetMainVals();
+}
 
 const opButtons = document.querySelectorAll('[id^="btnOp_"]');
 opButtons.forEach((button) => {
@@ -248,6 +250,7 @@ window.addEventListener('keydown', (event) => {
             break;
 
         case "NumLock":
+            powOnClear();
             break;
         
         case "Backspace":
