@@ -213,6 +213,20 @@ function calcBtnSolve() {
     }
 }
 
+const backButton = document.querySelector('#btnBack');
+backButton.addEventListener('click', backSpace);
+
+function backSpace() {
+    let numLen = currentNum.length;
+
+    if(numLen > 1) 
+        currentNum = currentNum.slice(0, numLen - 1);
+    else
+        currentNum = "0";
+
+    populateDisplay(currentNum);
+}
+
 window.addEventListener('keydown', (event) => {
     document.activeElement.blur();
     //console.log(event);
@@ -254,6 +268,7 @@ window.addEventListener('keydown', (event) => {
             break;
         
         case "Backspace":
+            backSpace();
             break;
         
     }
