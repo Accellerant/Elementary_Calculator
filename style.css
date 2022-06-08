@@ -1,5 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
 
+
+/*
+Classes are ordered based on when they're encountered
+on the page, or stacked in the html file.
+
+Comments which start with a '###'
+will label that all the classes underneath 
+them are in assocation with a specific field.
+*/
+body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: rgb(167, 175, 181);
+    margin: 0px;
+}
+
 .calc_frame {
     background-color: #1e4a86;;
     width: 425px;
@@ -7,14 +24,6 @@
     margin: 25px;
     padding: 40px;
     border-radius: 30px;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    background-color: rgb(167, 175, 181);
-    margin: 0px;
 }
 
 .display {
@@ -31,20 +40,25 @@ body {
     height: 66px;
 }
 
+
+/*
+###
+Main Logo, name, and company branding. 
+*/
+.cntnr_branding {
+    display: flex; 
+    gap: 30px;
+    margin: 10px 0px;
+    font-family: 'Robot Slab', 'Times New Roman', Times, serif;
+    font-weight: 1000;
+    color: white;
+}
+
 .cntnr_logo {
     display: flex;
     align-items: center;
     font-size: 18px;
     gap: 10px;
-}
-
-.cntnr_branding {
-   display: flex; 
-   gap: 30px;
-   margin: 10px 0px;
-   font-family: 'Robot Slab', 'Times New Roman', Times, serif;
-   font-weight: 1000;
-   color: white;
 }
 
 .img_logo {
@@ -57,23 +71,11 @@ body {
     font-size: 50px;
 }
 
-.cntnr_btn {
-    display: flex;
-    gap: 50px;
-    align-items: end;
-}
 
-.cntnr_numsPow, .cntnr_operators {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-[class^="row"] {
-    display: inherit;
-    gap: inherit;
-}
-
+/*
+###
+Main "Solar Cell" group.
+*/
 .solarCell {
     display: flex;
     margin-bottom: 20px;
@@ -91,6 +93,35 @@ body {
     border-right-style: solid;
 }
 
+
+/*
+###
+Main area for all Buttons
+*/
+.cntnr_btn {
+    display: flex;
+    gap: 50px;
+    align-items: end;
+}
+
+[class^="row"] {
+    display: inherit;
+    gap: inherit;
+}
+
+
+/*
+###
+Besides the 'ad' button, affects
+ALL of the interactive buttons
+on the calculator.
+*/
+.cntnr_numsPow, .cntnr_operators {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .cntnr_numsPow > div > button, 
 .cntnr_operators > button {
     border-radius: 5px;
@@ -103,21 +134,36 @@ body {
     font-size: 22px;
 }
 
-.cntnr_numsPow > div > button {
-    background-color: white;
-    border-color: #b9b9b9;
-}
-
+/* Colors for the ad and operator buttons */
 .cntnr_operators > button, .red, .ad {
     background-color: red !important;
     border-color: darkred !important;
     color: white;
 }
 
+/* Colors for the number buttons */
+.cntnr_numsPow > div > button {
+    background-color: white;
+    border-color: #b9b9b9;
+}
+
+/*
+While this could be pruned, this is left
+just in case a button is taken out and this
+needs to be resized to fill the gap.
+
+Note: Add button height + gap height to get a
+height aligned with the other buttons. 
+*/
 .calculate {
     height: 60px !important;
 }
 
+
+/*
+###
+Focused on the ad styling.
+*/
 .ad {
     font-weight: 1000;
     text-align: center;
