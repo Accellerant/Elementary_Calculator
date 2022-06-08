@@ -92,12 +92,7 @@ function roundDecimal(a) {
         }
         a = Number(wholeNum) + Number(decNum);
     }
-
-    
-
     return Number(a);
-    
-
 }
 
 function populateDisplay(stringDisplay){
@@ -109,7 +104,6 @@ function populateDisplay(stringDisplay){
 
 function resetMainVals() {
     populateDisplay(currentNum = "0");
-    decimalUsed = false;
     userNum1 = "";
     userNum2 = "";
     userOperation = "";
@@ -120,7 +114,7 @@ function resetMainVals() {
 
 let userNum1 = "", userNum2 = "", userOperation = "";
 let currentNum = "";
-let operatorChosen = false, decimalUsed = false, powOn = false, calculated = false;
+let operatorChosen = false, powOn = false, calculated = false;
 
 
 const numButtons = document.querySelectorAll('[id^="btnNum_"]');
@@ -145,13 +139,16 @@ function numBtn(keyVal = "undefined") {
 }
 
 const decButton = document.querySelector('#btnDec');
-decButton.addEventListener('click', () => {
-    if(decimalUsed != true){
-       currentNum += ".";
-       populateDisplay(currentNum);
-       decimalUsed = true;
-    }
-});
+decButton.addEventListener('click', decBtn);
+
+function decBtn() {
+    if(currentNum.length === 0)
+        currentNum = "0.";
+    else if (currentNum.indexOf(".") === -1)
+        currentNum += ".";
+
+    populateDisplay(currentNum);
+}
 
 const clearButton = document.querySelector('#btn_on');
 clearButton.addEventListener('click', () => {
@@ -189,7 +186,6 @@ function calcBtnOperation() {
         populateDisplay(currentNum);
 
     currentNum = "";
-    decimalUsed = false;
 }
 
 const calcButton = document.querySelector('#btnCalc');
@@ -218,6 +214,7 @@ function calcBtnSolve() {
 window.addEventListener('keydown', (event) => {
     document.activeElement.blur();
     //console.log(event);
+    //console.log(event.key)
 
 
     switch(event.key) {
@@ -246,6 +243,16 @@ window.addEventListener('keydown', (event) => {
             numBtn(event.key);
             break;
 
+        case ".":
+            decBtn();
+            break;
+
+        case "NumLock":
+            break;
+        
+        case "Backspace":
+            break;
+        
     }
 });
 
